@@ -3,11 +3,12 @@ Introduction-to-Python-and-OOP---3
 
 ```
 class Dept:
-    def __init__(self, name): #constructor
+    def __init__(self, name, num): #constructor
         self.name = name
+        self.num = num
 
     def __str__(self): # called to print name of obj as a string
-        return f"dept: {self.name}"
+        return f"dept: {self.num}: {self.name} "
     
     def __repr__(self):
         # think of this as being used for debugging
@@ -20,7 +21,12 @@ class Store:
         self.depts = depts
 
     def __str__(self): # called to print name of obj as a string
-        return f"store: {self.name}"
+        s = f"store: {self.name}\nDepartments:\n"
+        
+        for d in self.depts:
+            s += f" {d.num} : {d.name}\n"
+        
+        return s
     
     def __repr__(self):
         # think of this as being used for debugging
@@ -28,9 +34,9 @@ class Store:
     
 
 depts = [
-    Dept("Department1"),
-    Dept("Department2"),
-    Dept("Department3"),
+    Dept("Department1", 11),
+    Dept("Department2", 22),
+    Dept("Department3", 33),
 ]
 
 
@@ -38,6 +44,6 @@ depts = [
 my_store = Store("Dave's", depts) # new store object
 print(my_store)
 
-dept1 = Dept("Department1")
-print(dept1)
+# dept1 = Dept("Department1")
+# print(dept1)
 ```
